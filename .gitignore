@@ -363,5 +363,6 @@ MigrationBackup/
 FodyWeavers.xsd
 
 
-# Unity libraries
+# Unity libraries and temp
 Library/
+Temp/
