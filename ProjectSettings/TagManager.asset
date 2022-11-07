@@ -6,6 +6,7 @@ TagManager:
   tags:
   - fall
   - tree
+  - fin
   layers:
   - Default
   - TransparentFX
