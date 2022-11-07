@@ -39,8 +39,7 @@ public class CameraScript : MonoBehaviour
         var result = rotation * new Vector3(0, balle.transform.position.y / 3f, -distance);
         Vector3 positionCamera = result + balle.transform.position;
 
-        transform.position = positionCamera;
-        transform.rotation = rotation;
+        transform.SetPositionAndRotation(positionCamera, rotation);
 
         if (transform.position.y < 2.5f)
         {

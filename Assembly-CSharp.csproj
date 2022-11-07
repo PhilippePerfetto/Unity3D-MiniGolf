@@ -71,6 +71,7 @@
     <Compile Include="Assets\FarlandSkies\Demo\Scripts\Player\SmoothMouseLook.cs" />
     <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxChanger.cs" />
     <Compile Include="Assets\3D Models\LowPolyKit\Scripts\ElevatorCable.cs" />
+    <Compile Include="Assets\Scripts\Shot.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3D Models\LowPolyKit\Scripts\Settings.dll" />
