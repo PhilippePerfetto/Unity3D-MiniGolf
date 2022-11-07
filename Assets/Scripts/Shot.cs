@@ -7,9 +7,12 @@ public class Shot : MonoBehaviour
 {
     public RectTransform powerBar;
     public GameObject ball;
+    public GameObject guide;
     bool powerActivated = false;
     bool canShot = true;
+    bool canCheckSpeed = false;
     public float shotPowerMultiplier;
+    int nbShots = 0;
 
     private void Update()
     {
@@ -17,6 +20,17 @@ public class Shot : MonoBehaviour
         {
             HandleShot();
         }
+
+        if (canCheckSpeed && ball.GetComponent<Rigidbody>().velocity.magnitude < 0.2f)
+        {
+            canShot = true;
+        }
+    }
+
+    IEnumerator ActivateSpeedCheck()
+    {
+        yield return new WaitForSeconds(1.0f);
+        canCheckSpeed = true;
     }
 
     public void HandleShot()
@@ -26,11 +40,14 @@ public class Shot : MonoBehaviour
             if (powerActivated)
             {
                 powerActivated = !powerActivated;
+                guide.SetActive(false);
                 ShotTheBall();
+                canShot = false;
             }
             else
             {
                 powerActivated = !powerActivated;
+                guide.SetActive(true);
                 ActivatePowerBar();
             }
         }
@@ -47,6 +64,8 @@ public class Shot : MonoBehaviour
 
         float shotPower = powerBar.localScale.x * shotPowerMultiplier;
         ball.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * shotPower);
+        nbShots++;
+        StartCoroutine(nameof(ActivateSpeedCheck));
     }
 
     IEnumerator AnimatePowerBar()

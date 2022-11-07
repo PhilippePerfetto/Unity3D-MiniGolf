@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.13543987, g: 0.42228103, b: 0.5544435, a: 1}
+  m_IndirectSpecularColor: {r: 0.0697895, g: 0.22535436, b: 0.30260164, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1530,7 +1530,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031260586}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: bc1f81ddccf099444a93fb378f362b32, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -1863,13 +1863,13 @@ Rigidbody:
   m_GameObject: {fileID: 1285726669}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 0.75
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!4 &1285726673 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: bdc9ffdafefb8e149941e3f08b513b07, type: 3}
@@ -1882,7 +1882,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1285726669}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4ec561e23b646ee4ca3cc11c8d9fb91e, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2304,7 +2304,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerBar: {fileID: 729711047}
   ball: {fileID: 1285726669}
-  shotPowerMultiplier: 1000
+  guide: {fileID: 1645324910}
+  shotPowerMultiplier: 2500
 --- !u!1001 &1434939178
 PrefabInstance:
   m_ObjectHideFlags: 0
