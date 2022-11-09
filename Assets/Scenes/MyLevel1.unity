@@ -2724,7 +2724,7 @@ MonoBehaviour:
   powerBar: {fileID: 729711047}
   ball: {fileID: 1285726669}
   guide: {fileID: 1645324910}
-  shotPowerMultiplier: 2500
+  shotPowerMultiplier: 2200
 --- !u!1001 &1434939178
 PrefabInstance:
   m_ObjectHideFlags: 0

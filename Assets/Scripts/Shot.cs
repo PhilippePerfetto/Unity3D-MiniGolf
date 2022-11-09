@@ -55,11 +55,13 @@ public class Shot : MonoBehaviour
 
     void ActivatePowerBar()
     {
+        SFXManager.Instance.PlaySfxById(4);
         StartCoroutine(nameof(AnimatePowerBar));
     }
 
     void ShotTheBall()
     {
+        SFXManager.Instance.PlaySfxById(1);
         StopAllCoroutines();
 
         float shotPower = powerBar.localScale.x * shotPowerMultiplier;
@@ -74,7 +76,7 @@ public class Shot : MonoBehaviour
 
         while (powerActivated)
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.15f);
             powerBar.localScale = new Vector3(powerBar.localScale.x - val, powerBar.localScale.y, powerBar.localScale.z);
 
             if (powerBar.localScale.x < 0.2f)
