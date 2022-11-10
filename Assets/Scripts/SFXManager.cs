@@ -19,6 +19,14 @@ public class SFXManager : MonoBehaviour
     public AudioClip[] sfx;
     public AudioSource audioSource;
 
+    private void Awake()
+    {
+        if (_instance != null && FindObjectOfType<SFXManager>() != _instance)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     public void PlaySfxById(int id)
     {
         Console.WriteLine("PlaySfxById");

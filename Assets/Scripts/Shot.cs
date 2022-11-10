@@ -12,7 +12,7 @@ public class Shot : MonoBehaviour
     bool canShot = true;
     bool canCheckSpeed = false;
     public float shotPowerMultiplier;
-    int nbShots = 0;
+    public int nbShots = 0;
 
     private void Update()
     {
