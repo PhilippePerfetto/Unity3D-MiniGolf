@@ -80,6 +80,8 @@
     <Compile Include="Assets\Scripts\PanelFin.cs" />
     <Compile Include="Assets\Scripts\RotatingSky.cs" />
     <Compile Include="Assets\Scripts\Logo.cs" />
+    <Compile Include="Assets\Scripts\RotateAroundScript.cs" />
+    <Compile Include="Assets\Scripts\StartLevel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
