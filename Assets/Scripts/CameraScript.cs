@@ -25,9 +25,9 @@ public class CameraScript : MonoBehaviour
 
         // Si on est sur mobile
 #if UNITY_ANDROID || UNITY_IPHONE
-    if (Input.Touches.Length == 1)
+    if (Input.touches.Length == 1)
     {
-        x += Input.GetTouch(0).deltaPosition * 0.1f;
+        x += Input.GetTouch(0).deltaPosition.x * 0.1f;
     }
 #endif
 
