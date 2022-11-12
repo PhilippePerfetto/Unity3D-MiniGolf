@@ -20,7 +20,7 @@ public class Ball : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("fin"))
         {
-            GameManager.Score = Math.Max(0, 10 - shotScript.nbShots) * 100;
+            GameManager.Score += Math.Max(0, 10 - shotScript.nbShots) * 100;
             Instantiate(winParticles, transform.position, Quaternion.identity);
             SFXManager.Instance.PlaySfxById(0);
             text.text = $"Fini en {shotScript.nbShots} coups";

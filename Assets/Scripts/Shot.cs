@@ -24,6 +24,7 @@ public class Shot : MonoBehaviour
         if (canCheckSpeed && ball.GetComponent<Rigidbody>().velocity.magnitude < 0.2f)
         {
             canShot = true;
+            GetComponent<Button>().interactable = canShot;
         }
     }
 
@@ -43,6 +44,8 @@ public class Shot : MonoBehaviour
                 guide.SetActive(false);
                 ShotTheBall();
                 canShot = false;
+                GetComponent<Button>().interactable = canShot;
+                SFXManager.Instance.PlaySfxById(3);
             }
             else
             {
@@ -79,7 +82,7 @@ public class Shot : MonoBehaviour
             yield return new WaitForSeconds(0.15f);
             powerBar.localScale = new Vector3(powerBar.localScale.x - val, powerBar.localScale.y, powerBar.localScale.z);
 
-            if (powerBar.localScale.x < 0.2f)
+            if (powerBar.localScale.x < 0.1f)
             {
                 val = -0.1f;
             }

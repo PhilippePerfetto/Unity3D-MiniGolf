@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class StartLevel : MonoBehaviour
 {
-    public GameObject gameIHM;
+    public GameObject powerIHM;
+    public GameObject fireIHM;
     public GameObject animCam;
 
     void Update()
@@ -10,7 +11,8 @@ public class StartLevel : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space)
             || Input.GetMouseButtonUp(0)) // devrait fonctionner sur mobile
         {
-            gameIHM.SetActive(true);
+            powerIHM.SetActive(true);
+            fireIHM.SetActive(true);
             animCam.SetActive(false);
             this.gameObject.SetActive(false);
         }
