@@ -10,7 +10,6 @@ public class SetVolume : MonoBehaviour
             var val = PlayerPrefs.GetFloat("volume");
             print(val);
             GetComponent<Slider>().value = val;
-            // SetToComponent(val);
         }
     }
 
