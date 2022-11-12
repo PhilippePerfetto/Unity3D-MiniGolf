@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\StartLevel.cs" />
     <Compile Include="Assets\Scripts\Pause.cs" />
     <Compile Include="Assets\Scripts\UnlockButton.cs" />
+    <Compile Include="Assets\Scripts\SetVolume.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
