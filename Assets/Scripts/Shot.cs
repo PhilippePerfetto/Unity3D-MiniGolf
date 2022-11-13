@@ -1,18 +1,16 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Shot : MonoBehaviour
 {
     public RectTransform powerBar;
-    public GameObject ball;
     public GameObject guide;
+    public float shotPowerMultiplier;
+
     bool powerActivated = false;
     bool canShot = true;
     bool canCheckSpeed = false;
-    public float shotPowerMultiplier;
-    public int nbShots = 0;
 
     private void Update()
     {
@@ -21,7 +19,7 @@ public class Shot : MonoBehaviour
             HandleShot();
         }
 
-        if (canCheckSpeed && ball.GetComponent<Rigidbody>().velocity.magnitude < 0.2f)
+        if (canCheckSpeed && GameManager.Instance.GetInSceneBall().GetComponent<Rigidbody>().velocity.magnitude < 0.2f)
         {
             canShot = true;
             GetComponent<Button>().interactable = canShot;
@@ -68,8 +66,8 @@ public class Shot : MonoBehaviour
         StopAllCoroutines();
 
         float shotPower = powerBar.localScale.x * shotPowerMultiplier;
-        ball.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * shotPower);
-        nbShots++;
+        GameManager.Instance.GetInSceneBall().GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * shotPower);
+        GameManager.Instance.NbShots++;
         StartCoroutine(nameof(ActivateSpeedCheck));
     }
 

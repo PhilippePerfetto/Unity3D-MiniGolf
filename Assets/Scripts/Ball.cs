@@ -1,33 +1,30 @@
 using System;
 using System.Collections;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour
 {
     public GameObject winParticles;
-    public TextMeshProUGUI text;
-    public Shot shotScript;
-    public GameObject panelFin;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("fall"))
         {
             SFXManager.Instance.PlaySfxById(2);
+            GameManager.Instance.PanelPauseAndFire.SetActive(false);
             StartCoroutine(nameof(ReloadLevelAfterSeconds));
         }
         else if (other.gameObject.CompareTag("fin"))
         {
-            GameManager.Score += Math.Max(0, 10 - shotScript.nbShots) * 100;
+            GameManager.Instance.Score += Math.Max(0, 10 - GameManager.Instance.NbShots) * 100;
             Instantiate(winParticles, transform.position, Quaternion.identity);
             SFXManager.Instance.PlaySfxById(0);
-            text.text = $"Fini en {shotScript.nbShots} coups";
+            GameManager.Instance.TextNbShots.text = $"Fini en {GameManager.Instance.NbShots} coups";
 
-            var scr = panelFin.GetComponent<PanelFin>();
-            scr.SetTotalScore();
-            panelFin.SetActive(true);
+            GameManager.Instance.PanelFin.GetComponent<PanelFin>().SetTotalScore();
+            GameManager.Instance.PanelFin.SetActive(true);
+            GameManager.Instance.PanelPauseAndFire.SetActive(false);
         }
     }
 

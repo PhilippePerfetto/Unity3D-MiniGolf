@@ -8,24 +8,21 @@ public class Menu : MonoBehaviour
 
     private void Start()
     {
-        if (SceneManager.GetActiveScene().name == "Menu")
+        if (SceneManager.GetActiveScene().name == "Menu") // sécurité, mais inutile
         {
-            print("removing GOs");
             var gos = GameObject.FindGameObjectsWithTag("tree");
+            int name = 1;
 
             foreach (var go in gos)
             {
                 var pos = go.transform.position + new Vector3(0, 0.4f, 0);
-                var newGo = Instantiate(flower, pos, Quaternion.identity, gameObject.transform.parent);
-                newGo.AddComponent(Type.GetType("DontDestroyOnLoad"));
+                var newGo = Instantiate(flower, pos, Quaternion.identity);
+                newGo.AddComponent(Type.GetType("DontDestroyOnLoad")); // work only on root objects !
+                newGo.name= name.ToString();
+                name++;
                 Destroy(go);
             }
         }
-    }
-
-    public void LaunchGame()
-    {
-        SceneManager.LoadScene(2);
     }
 
     public void LoadLevel(int level)

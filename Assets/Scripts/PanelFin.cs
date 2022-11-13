@@ -10,6 +10,9 @@ public class PanelFin : MonoBehaviour
     public void BackToMenu()
     {
         Time.timeScale = 1f;
+        GameManager.Instance.PanelPauseAndFire.SetActive(false);
+        GameManager.Instance.PanelPause.SetActive(false);
+        GameManager.Instance.PanelFin.SetActive(false);
         SceneManager.LoadScene(1);
     }
 
@@ -32,7 +35,7 @@ public class PanelFin : MonoBehaviour
 
     public void SetTotalScore()
     {
-        textScore.text = "Votre score total : " + GameManager.Score;
+        textScore.text = "Votre score total : " + GameManager.Instance.Score;
     }
 
     public void QuitApp()
