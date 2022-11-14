@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +9,7 @@ public class InitLevel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // This work for all objects existing at start in the logo scene tagged with non destroy attribute
         var all = GetAllObjectsOnlyInScene();
         GameManager.Instance.CanvasPause = all.First(x => x.name == "CanvasPause");
         GameManager.Instance.FireBar = all.First(x => x.name == "FireBar");
@@ -42,6 +42,10 @@ public class InitLevel : MonoBehaviour
             GameManager.Instance.PanelPauseAndFire.SetActive(false);
             GameManager.Instance.PushToPlayText.SetActive(true);
         }
+        else if (SceneManager.GetActiveScene().name == "Menu")
+        {
+
+        }
     }
     /*
     public GameObject FindObject(string name)
@@ -64,7 +68,7 @@ public class InitLevel : MonoBehaviour
         foreach (GameObject go in Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[])
         {
             // if (!EditorUtility.IsPersistent(go.transform.root.gameObject) && !(go.hideFlags == HideFlags.NotEditable || go.hideFlags == HideFlags.HideAndDontSave))
-                objectsInScene.Add(go);
+            objectsInScene.Add(go);
         }
 
         return objectsInScene;

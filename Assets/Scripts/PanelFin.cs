@@ -28,9 +28,7 @@ public class PanelFin : MonoBehaviour
 
     public void UnlockNextLevel(int level)
     {
-        int lastUnlockedLevel = Math.Max(PlayerPrefs.GetInt("lastLevel"), level);
-
-        PlayerPrefs.SetInt("lastLevel", lastUnlockedLevel - 1);
+        GameManager.Instance.UnlockNextLevel(level);
     }
 
     public void SetTotalScore()

@@ -62,10 +62,8 @@
     <Compile Include="Assets\Scripts\SFXManager.cs" />
     <Compile Include="Assets\Scripts\Logo.cs" />
     <Compile Include="Assets\Scripts\PunchAnim.cs" />
-    <Compile Include="Assets\Scripts\RandomSky.cs" />
     <Compile Include="Assets\3D Models\LowPolyKit\Scripts\Rotate.cs" />
     <Compile Include="Assets\Scripts\Shot.cs" />
-    <Compile Include="Assets\Scripts\UnlockButton.cs" />
     <Compile Include="Assets\Scripts\RotateAroundScript.cs" />
     <Compile Include="Assets\Scripts\Ball.cs" />
     <Compile Include="Assets\Scripts\DontDestroyOnLoad.cs" />

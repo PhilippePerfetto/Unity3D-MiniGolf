@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -24,6 +27,8 @@ public class GameManager : MonoBehaviour
 
     private GameObject ball;
     private GameObject rotatingCamera;
+    private IEnumerable<GameObject> menuButtons;
+    private IEnumerable<GameObject> profileButtons;
 
     private GameObject canvasPause;
     private GameObject shotButton;
@@ -43,12 +48,25 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI TextNbShots { get => textNbShots; set => textNbShots = value; }
     public GameObject PushToPlayText { get => pushToPlayText; set => pushToPlayText = value; }
 
+    public string PrefKey() => "lastLevel_" + Profile;
+
+    public void UnlockNextLevel(int level)
+    {
+        int lastUnlockedLevel = Math.Max(PlayerPrefs.GetInt(PrefKey()), level);
+
+        PlayerPrefs.SetInt(PrefKey(), lastUnlockedLevel - 1);
+    }
+
+    public int GetNetxLevel() => PlayerPrefs.GetInt(PrefKey());
+
     public void SceneChanged()
     {
         NbShots = 0;
 
         ball = null;
         rotatingCamera = null;
+        menuButtons = null;
+        profileButtons = null;
     }
 
     public GameObject GetInSceneBall()
@@ -60,6 +78,7 @@ public class GameManager : MonoBehaviour
 
         return ball;
     }
+
     public GameObject GetInSceneRotatingCamera()
     {
         print("GetInSceneRotatingCamera");
@@ -71,5 +90,29 @@ public class GameManager : MonoBehaviour
         print(rotatingCamera.GetHashCode());
 
         return rotatingCamera;
+    }
+
+    public IEnumerable<GameObject> GetInSceneMenuButtons()
+    {
+        if (menuButtons == null)
+        {
+            print("GetInSceneMenuButtons : null => search");
+            menuButtons = GameObject.FindGameObjectsWithTag("menuButtons").ToList().OrderBy(x => int.Parse(x.name[8..]));
+            print(menuButtons.Count());
+        }
+
+        return menuButtons;
+    }
+
+    public IEnumerable<GameObject> GetInSceneProfileButtons()
+    {
+        if (profileButtons == null)
+        {
+            print("GetInSceneProfileButtons : null => search");
+            profileButtons = GameObject.FindGameObjectsWithTag("profileButtons").ToList().OrderBy(x => int.Parse(x.name[10..]));
+            print(profileButtons.Count());
+        }
+
+        return profileButtons;
     }
 }

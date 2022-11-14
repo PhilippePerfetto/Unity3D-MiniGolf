@@ -8,6 +8,8 @@ TagManager:
   - tree
   - fin
   - ground
+  - menuButtons
+  - profileButtons
   layers:
   - Default
   - TransparentFX
