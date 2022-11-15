@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.20537972, g: 0.6357101, b: 0.83054787, a: 1}
+  m_IndirectSpecularColor: {r: 0.13834772, g: 0.43101954, b: 0.5656756, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3246,7 +3246,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.335
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -3338,14 +3338,14 @@ MonoBehaviour:
   - {fileID: 4500131129008238688, guid: e7064c972d1cbc64ea58e524badd8d63, type: 3}
   - {fileID: 2461238489191197996, guid: 1eb96fa658566724f8e47fd041d75ce0, type: 3}
   moves:
-  - {x: 0, y: 2, z: 0}
-  - {x: 0, y: 0.25, z: 0.001}
-  - {x: 0, y: -1.5, z: 0}
-  - {x: 0, y: 0.1, z: 0}
-  - {x: 0, y: 0.15, z: 0}
-  - {x: 0, y: 2.7, z: 0}
-  - {x: 0, y: -1.8, z: 0}
-  - {x: 0, y: 2, z: 0}
+  - {x: 0, y: -4.6, z: 0}
+  - {x: 0, y: -6.2, z: 0.001}
+  - {x: 0, y: -6.2, z: 0}
+  - {x: 0, y: -6.2, z: 0}
+  - {x: 0, y: -4.3, z: 0}
+  - {x: 0, y: -3.5, z: 0}
+  - {x: 0, y: -6.3, z: 0}
+  - {x: 0, y: -4.1, z: 0}
   rotat:
   - {x: -90, y: 0, z: 0}
   - {x: -90, y: 0, z: 0}

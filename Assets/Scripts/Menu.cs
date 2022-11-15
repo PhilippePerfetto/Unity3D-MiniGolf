@@ -59,6 +59,43 @@ public class Menu : MonoBehaviour
         }
     }
 
+    private void CreateGroundDecoration()
+    {
+        var gos = GameObject.FindGameObjectsWithTag("groundDecoration");
+        foreach (var go in gos) { Destroy(go); }
+
+        int name = 1;
+        bool randomModel = false;
+        int indexRandomized;
+
+        var index = (int)GameManager.Instance.Profile * 2;
+        var maxDeco = 1000;
+
+        for (var i = 0; i < maxDeco; i++)
+        {
+            var x = UnityEngine.Random.Range(0.0f, 200.0f) - 100.0f;
+            var rotY = UnityEngine.Random.Range(0.0f, 360.0f);
+            var z = UnityEngine.Random.Range(0.0f, 200.0f) - 100.0f;
+
+            indexRandomized = randomModel ? index : index + 1;
+            var pos = moves[indexRandomized] + new Vector3(x, 0.0f, z);
+
+            print("     moves:" + moves[indexRandomized]);
+            print("     pos:" + pos);
+
+            var newGo = Instantiate(prefabs[indexRandomized], pos, Quaternion.identity);
+            newGo.transform.Rotate(rotat[indexRandomized] + new Vector3(0.0f, rotY, 0.0f));
+
+            print("         final transform:" + newGo.transform.position);
+
+            newGo.AddComponent(Type.GetType("DontDestroyOnLoad")); // work only on root objects !
+            newGo.name = name.ToString();
+            newGo.tag = "groundDecoration";
+            name++;
+            randomModel = !randomModel;
+        }
+    }
+
     public void LoadLevel(int level)
     {
         SceneManager.LoadScene(level + 2);
@@ -69,7 +106,8 @@ public class Menu : MonoBehaviour
         GameManager.Instance.Profile = (GameManager.Profiles)profile;
         UpdateProfileButtons(profile);
         UpdateLevelButtons();
-        UpdateGroundDecoration();
+        // UpdateGroundDecoration();
+        CreateGroundDecoration();
 
         RenderSettings.skybox = mat[profile];
     }
