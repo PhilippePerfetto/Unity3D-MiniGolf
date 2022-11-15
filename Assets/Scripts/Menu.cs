@@ -61,8 +61,8 @@ public class Menu : MonoBehaviour
 
     private void CreateGroundDecoration()
     {
-        // var gos = GameObject.FindGameObjectsWithTag("groundDecoration");
-        // foreach (var go in gos) { Destroy(go); }
+        var gos = GameObject.FindGameObjectsWithTag("groundDecoration");
+        foreach (var go in gos) { Destroy(go); }
 
         int name = 1;
         bool randomModel = false;
