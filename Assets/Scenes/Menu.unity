@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0844341, g: 0.26840857, b: 0.35705063, a: 1}
+  m_IndirectSpecularColor: {r: 0.20537972, g: 0.6357101, b: 0.83054787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -961,14 +961,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 264663633}
-  m_LocalRotation: {x: 0.32300416, y: 0.035730716, z: -0.015139959, w: 0.9456017}
+  m_LocalRotation: {x: 0.1974721, y: 0.033462092, z: -0.019651785, w: 0.9795401}
   m_LocalPosition: {x: -5.37, y: 7.9, z: -22.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 37.731, y: 4.191, z: -0.402}
+  m_LocalEulerAnglesHint: {x: 22.841, y: 3.595, z: -1.572}
 --- !u!81 &264663639
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1494,7 +1494,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 740511880}
-  - component: {fileID: 740511882}
   - component: {fileID: 740511881}
   m_Layer: 0
   m_Name: Clouds
@@ -1543,24 +1542,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotation: {x: 0, y: 10, z: 0}
---- !u!114 &740511882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 740511879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc3211bdd2385e244ac868a67480ac81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mat:
-  - {fileID: 2100000, guid: 617d9be015db68348a623b01ea51a8c5, type: 2}
-  - {fileID: 2100000, guid: 77715b8b6b248994891d3ccad1ad330b, type: 2}
-  - {fileID: 2100000, guid: ceb0a3ed2cb53a94fa21843cc958c52b, type: 2}
-  - {fileID: 2100000, guid: 169a1b8f06c17c84e8de491f2bfef986, type: 2}
-  - {fileID: 2100000, guid: 3930fc89a28b29746bde6a2389a513e0, type: 2}
 --- !u!1 &756965351
 GameObject:
   m_ObjectHideFlags: 0
@@ -3347,7 +3328,33 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 169a1b8f06c17c84e8de491f2bfef986, type: 2}
   - {fileID: 2100000, guid: 77715b8b6b248994891d3ccad1ad330b, type: 2}
   - {fileID: 2100000, guid: 3930fc89a28b29746bde6a2389a513e0, type: 2}
-  flower: {fileID: 1681585123162633853, guid: 3ac18f019461fe24ebe85b79764be5e8, type: 3}
+  prefabs:
+  - {fileID: 101681836541467558, guid: ed1fae9036e897744bf7d1f4c0d2e164, type: 3}
+  - {fileID: 2054342860079976501, guid: e1c18347d70ef85419bdfe985c9a2c75, type: 3}
+  - {fileID: 2312927996652285329, guid: f978636b14fd9e342a9a3c06fc49d6f1, type: 3}
+  - {fileID: 4275638354344424271, guid: e6aad49a85fa8e645ab66ca545a46b0f, type: 3}
+  - {fileID: 7220475471199986122, guid: 8ac21a041f975f24b82036f3bd30f9a7, type: 3}
+  - {fileID: 3178735847556914494, guid: 68bd2c734d22004448bbafb9ebf2ff5b, type: 3}
+  - {fileID: 4500131129008238688, guid: e7064c972d1cbc64ea58e524badd8d63, type: 3}
+  - {fileID: 2461238489191197996, guid: 1eb96fa658566724f8e47fd041d75ce0, type: 3}
+  moves:
+  - {x: 0, y: 2, z: 0}
+  - {x: 0, y: 0.25, z: 0.001}
+  - {x: 0, y: -1.5, z: 0}
+  - {x: 0, y: 0.1, z: 0}
+  - {x: 0, y: 0.15, z: 0}
+  - {x: 0, y: 2.7, z: 0}
+  - {x: 0, y: -1.8, z: 0}
+  - {x: 0, y: 2, z: 0}
+  rotat:
+  - {x: -90, y: 0, z: 0}
+  - {x: -90, y: 0, z: 0}
+  - {x: -90, y: 0, z: 0}
+  - {x: -90, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: -90, y: 0, z: 0}
 --- !u!114 &1105173403
 MonoBehaviour:
   m_ObjectHideFlags: 0
