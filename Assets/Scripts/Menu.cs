@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -35,19 +36,8 @@ public class Menu : MonoBehaviour
             indexRandomized = randomModel ? index : index + 1;
             var pos = go.transform.position + moves[indexRandomized];
 
-            if (moves[indexRandomized].z >= 49.0f)
-            {
-                print("trasnform:" + go.transform.position);
-                print("     moves:" + moves[indexRandomized]);
-                print("     pos:" + pos);
-            }
-
             var newGo = Instantiate(prefabs[indexRandomized], pos, Quaternion.identity);
             newGo.transform.Rotate(rotat[indexRandomized]);
-            // newGo.transform.position = pos; // useless
-
-            if (moves[indexRandomized].z >= 49.0f)
-                print("         final transform:" + newGo.transform.position);
 
             newGo.AddComponent(Type.GetType("DontDestroyOnLoad")); // work only on root objects !
             newGo.name = name.ToString();
@@ -132,6 +122,10 @@ public class Menu : MonoBehaviour
         CreateGroundDecoration();
         UpdateGroundMaterial();
 
+        var textNbLevels = GameObject.Find("TextNbLevels");
+        var cmpText = textNbLevels.GetComponent<TextMeshProUGUI>();
+        cmpText.text = $"{GameManager.Instance.NbLevels} / 44";
+
         RenderSettings.skybox = mat[profile];
     }
 
@@ -150,6 +144,9 @@ public class Menu : MonoBehaviour
         var btns = GameManager.Instance.GetInSceneMenuButtons();
 
         int level = Math.Max(1, GameManager.Instance.GetNetxLevel());
+
+        // PPE - tcheat codes :)
+        // level = 10;
 
         for (int i = level; i < btns.Count(); i++)
             btns.ElementAt(i).GetComponent<Button>().interactable = false;

@@ -48,6 +48,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI TextNbShots { get => textNbShots; set => textNbShots = value; }
     public GameObject PushToPlayText { get => pushToPlayText; set => pushToPlayText = value; }
 
+    public int NbLevels => PlayerPrefs.GetInt("lastLevel_Lohan") + PlayerPrefs.GetInt("lastLevel_Emma") + PlayerPrefs.GetInt("lastLevel_Marc") + PlayerPrefs.GetInt("lastLevel_Marina");
+
     public string PrefKey() => "lastLevel_" + Profile;
 
     public void UnlockNextLevel(int level)

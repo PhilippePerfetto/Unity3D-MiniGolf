@@ -19,10 +19,11 @@ public class PanelFin : MonoBehaviour
     public void GoToNextLevel()
     {
         int nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
+        UnlockNextLevel(nextLevel);
+
         if (nextLevel > SceneManager.sceneCountInBuildSettings)
             nextLevel = 2;
 
-        UnlockNextLevel(nextLevel);
         SceneManager.LoadScene(nextLevel);
     }
 

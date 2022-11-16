@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -31,36 +32,50 @@ public class InitLevel : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name.StartsWith("MyLevel"))
         {
-            /*
-            print("list :");
-            foreach (var go in all.Select(x => x))
-            {
-                print("\t" + go?.name);
-            }*/
             GameManager.Instance.CanvasPause.SetActive(true);
             GameManager.Instance.PanelFin.SetActive(false);
             GameManager.Instance.PanelPauseAndFire.SetActive(false);
             GameManager.Instance.PushToPlayText.SetActive(true);
+
+            bool marinaMode = GameManager.Instance.Profile == GameManager.Profiles.Marina;
+            var huge = GameObject.Find("HugeDecoration");
+            
+            if (huge != null)
+                huge.SetActive(marinaMode);
+
+            TestMarinaMode(marinaMode, "MyLevel8");
+            TestMarinaMode(marinaMode, "MyLevel9");
+            TestMarinaMode(marinaMode, "MyLevel10");
         }
         else if (SceneManager.GetActiveScene().name == "Menu")
         {
 
         }
     }
-    /*
-    public GameObject FindObject(string name)
+
+    private void TestMarinaMode(bool marinaMode, string myLevel)
     {
-        Transform[] trs = GetComponentsInChildren<Transform>(true);
-        foreach (Transform t in trs)
+        if (marinaMode && SceneManager.GetActiveScene().name == myLevel)
         {
-            if (t.name == name)
-            {
-                return t.gameObject;
-            }
+            var level = GameObject.Find(myLevel[2..]);
+            //level.transform.Rotate(0.0f, 0.0f, 10.0f);
         }
-        return null;
     }
-    */
+
+    /*
+public GameObject FindObject(string name)
+{
+   Transform[] trs = GetComponentsInChildren<Transform>(true);
+   foreach (Transform t in trs)
+   {
+       if (t.name == name)
+       {
+           return t.gameObject;
+       }
+   }
+   return null;
+}
+*/
     List<GameObject> GetAllObjectsOnlyInScene()
     {
         List<GameObject> objectsInScene = new List<GameObject>();

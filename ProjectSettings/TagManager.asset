@@ -11,6 +11,7 @@ TagManager:
   - menuButtons
   - profileButtons
   - groundDecoration
+  - marina
   layers:
   - Default
   - TransparentFX

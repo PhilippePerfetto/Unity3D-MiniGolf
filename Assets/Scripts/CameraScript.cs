@@ -31,7 +31,7 @@ public class CameraScript : MonoBehaviour
     }
 #endif
 
-        if (!EventSystem.current.IsPointerOverGameObject())
+        if (EventSystem.current != null && !EventSystem.current.IsPointerOverGameObject())
         {
             rotation = Quaternion.Euler(y, x, 0);
         }
