@@ -69,7 +69,20 @@ public class Menu : MonoBehaviour
         int indexRandomized;
 
         var index = (int)GameManager.Instance.Profile * 2;
+
+#if UNITY_EDITOR || UNITY_STANDALONE
         var maxDeco = 1000;
+#endif
+
+        // Si on est sur mobile
+#if UNITY_ANDROID || UNITY_IPHONE
+        var maxDeco = 650;
+#endif
+
+        if (GameManager.Instance.Profile == GameManager.Profiles.Marc)
+        {
+            maxDeco -= 500;
+        }
 
         for (var i = 0; i < maxDeco; i++)
         {
@@ -80,19 +93,28 @@ public class Menu : MonoBehaviour
             indexRandomized = randomModel ? index : index + 1;
             var pos = moves[indexRandomized] + new Vector3(x, 0.0f, z);
 
-            print("     moves:" + moves[indexRandomized]);
-            print("     pos:" + pos);
-
             var newGo = Instantiate(prefabs[indexRandomized], pos, Quaternion.identity);
             newGo.transform.Rotate(rotat[indexRandomized] + new Vector3(0.0f, rotY, 0.0f));
-
-            print("         final transform:" + newGo.transform.position);
 
             newGo.AddComponent(Type.GetType("DontDestroyOnLoad")); // work only on root objects !
             newGo.name = name.ToString();
             newGo.tag = "groundDecoration";
             name++;
             randomModel = !randomModel;
+        }
+    }
+
+    private void UpdateGroundMaterial()
+    {
+        var grounds = GameObject.FindGameObjectsWithTag("ground");
+
+        // Parent has materials
+        var materials = grounds.First().transform.parent.gameObject.GetComponent<MeshRenderer>().materials;
+
+        // Set materials to ground
+        foreach (var ground in grounds)
+        {
+            ground.GetComponent<MeshRenderer>().material = materials[(int)GameManager.Instance.Profile];
         }
     }
 
@@ -108,6 +130,7 @@ public class Menu : MonoBehaviour
         UpdateLevelButtons();
         // UpdateGroundDecoration();
         CreateGroundDecoration();
+        UpdateGroundMaterial();
 
         RenderSettings.skybox = mat[profile];
     }
