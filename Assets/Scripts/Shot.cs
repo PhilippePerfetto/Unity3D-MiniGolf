@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Shot : MonoBehaviour
@@ -19,7 +20,8 @@ public class Shot : MonoBehaviour
             HandleShot();
         }
 
-        if (canCheckSpeed && GameManager.Instance.GetInSceneBall().GetComponent<Rigidbody>().velocity.magnitude < 0.2f)
+        if (canCheckSpeed 
+            && GameManager.Instance.GetInSceneBall().GetComponent<Rigidbody>().velocity.magnitude < 0.2f)
         {
             canShot = true;
             GetComponent<Button>().interactable = canShot;

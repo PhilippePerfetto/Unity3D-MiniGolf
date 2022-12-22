@@ -22,6 +22,12 @@ public class Menu : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        GameManager.Instance.PanelFin.gameObject.transform.parent.gameObject.SetActive(false);
+    }
+
+    /*
     private void UpdateGroundDecoration()
     {
         var gos = GameObject.FindGameObjectsWithTag("groundDecoration");
@@ -48,7 +54,7 @@ public class Menu : MonoBehaviour
             Destroy(go);
         }
     }
-
+    */
     private void CreateGroundDecoration()
     {
         var gos = GameObject.FindGameObjectsWithTag("groundDecoration");
