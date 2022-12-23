@@ -66,13 +66,15 @@ public class Menu : MonoBehaviour
 
         var index = (int)GameManager.Instance.Profile * 2;
 
+        var maxDeco = 0;
+
 #if UNITY_EDITOR || UNITY_STANDALONE
-        var maxDeco = 1000;
+        maxDeco = 1000;
 #endif
 
         // Si on est sur mobile
 #if UNITY_ANDROID || UNITY_IPHONE
-        var maxDeco = 650;
+        maxDeco = 650;
 #endif
 
         if (GameManager.Instance.Profile == GameManager.Profiles.Marc)

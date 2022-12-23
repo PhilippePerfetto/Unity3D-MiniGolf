@@ -58,7 +58,7 @@ public class InitLevel : MonoBehaviour
         if (marinaMode && SceneManager.GetActiveScene().name == myLevel)
         {
             var level = GameObject.Find(myLevel[2..]);
-            //level.transform.Rotate(0.0f, 0.0f, 10.0f);
+            level.transform.Rotate(0.0f, 0.0f, 5.0f);
         }
     }
 
